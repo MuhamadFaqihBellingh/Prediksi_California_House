@@ -10,7 +10,8 @@ st.set_page_config(page_title="Prediksi Harga Rumah California", layout="wide")
 st.title('✨ Prediksi Harga Rumah di California')
 
 # Menampilkan gambar ilustrasi rumah dengan caption yang menarik
-st.image("https://github.com/MuhamadFaqihBellingh/Prediksi_California_House/blob/main/California_Housing/California%20Housing%20.jpg?raw=true", caption="Ilustrasi Rumah di California", use_container_width=True)
+st.image("https://github.com/MuhamadFaqihBellingh/Prediksi_California_House/blob/main/California%20Housing.jpg?raw=true", caption="Ilustrasi Rumah di California", use_container_width=True)
+
 
 # Menambahkan deskripsi yang lebih informatif dengan desain yang bersih
 st.markdown("""
