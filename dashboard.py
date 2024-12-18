@@ -59,7 +59,8 @@ st.write(user_input)
 if st.button("Prediksi Harga Rumah"):
     # Load model CatBoost yang telah dilatih
     cat_model_loaded = CatBoostRegressor()
-    cat_model_loaded.load_model("https://raw.githubusercontent.com/MuhamadFaqihBellingh/Prediksi_California_House/main/catboost_model.cbm")
+    cat_model_loaded.load_model('catboost_model.cbm')
+
 
 
     # Membuat Pool dari input pengguna
