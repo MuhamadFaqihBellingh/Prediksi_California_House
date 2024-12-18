@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 from catboost import CatBoostRegressor, Pool
 import numpy as np
+import requests
+import tempfile
 
 # Set the page config to improve the visual layout
 st.set_page_config(page_title="Prediksi Harga Rumah California", layout="wide")
@@ -57,8 +59,23 @@ st.write(user_input)
 if st.button("Prediksi Harga Rumah"):
     # Load model CatBoost yang telah dilatih
     cat_model_loaded = CatBoostRegressor()
-    cat_model_loaded.load_model('https://raw.githubusercontent.com/MuhamadFaqihBellingh/Prediksi_California_House/main/catboost_model.cbm')
+    # URL model di GitHub
+model_url = 'https://raw.githubusercontent.com/MuhamadFaqihBellingh/Prediksi_California_House/main/catboost_model.cbm'
 
+# Mengunduh file model
+response = requests.get(model_url)
+if response.status_code == 200:
+    # Simpan file sementara
+    with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
+        tmp_file.write(response.content)
+        model_path = tmp_file.name
+
+    # Muat model dari file sementara
+    cat_model_loaded = CatBoostRegressor()
+    cat_model_loaded.load_model(model_path)
+    st.write("Model berhasil dimuat.")
+else:
+    st.write("Gagal mengunduh model.")
 
     # Membuat Pool dari input pengguna
     user_input_pool = Pool(user_input)
