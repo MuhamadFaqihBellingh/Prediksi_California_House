@@ -12,7 +12,6 @@ st.title('✨ Prediksi Harga Rumah di California')
 # Menampilkan gambar ilustrasi rumah dengan caption yang menarik
 st.image("https://github.com/MuhamadFaqihBellingh/Prediksi_California_House/blob/main/California%20Housing.jpg?raw=true", caption="Ilustrasi Rumah di California", use_container_width=True)
 
-
 # Menambahkan deskripsi yang lebih informatif dengan desain yang bersih
 st.markdown("""
 ## Deskripsi Dataset dan Cara Menggunakan
@@ -58,7 +57,8 @@ st.write(user_input)
 if st.button("Prediksi Harga Rumah"):
     # Load model CatBoost yang telah dilatih
     cat_model_loaded = CatBoostRegressor()
-    cat_model_loaded.load_model('C:\\Users\\Lenovo\\OneDrive\\Documents\\California_Housing\\catboost_model.cbm')
+    cat_model_loaded.load_model('https://raw.githubusercontent.com/MuhamadFaqihBellingh/Prediksi_California_House/main/catboost_model.cbm')
+
 
     # Membuat Pool dari input pengguna
     user_input_pool = Pool(user_input)
